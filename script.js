@@ -169,7 +169,7 @@ const currencyConverter = {
 
 	async getPastRates() {
 		this.ratesArray = [];
-		
+
 		for (const date of this.pastDates) {
 			const response = await fetch(this.getHistoricalRates(date));
 			const results  = await response.json();
@@ -178,6 +178,8 @@ const currencyConverter = {
 				this.ratesArray.push(results.quotes[key]);
 			};
 		}
+
+		console.log(this.ratesArray);
 	},
 
 	// generates date format
