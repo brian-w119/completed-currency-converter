@@ -168,6 +168,8 @@ const currencyConverter = {
 
 
 	async getPastRates() {
+		this.ratesArray = [];
+		
 		for (const date of this.pastDates) {
 			const response = await fetch(this.getHistoricalRates(date));
 			const results  = await response.json();
