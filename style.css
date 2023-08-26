@@ -1,0 +1,148 @@
+.title{
+    text-align: center;
+
+}
+
+.currencylayout{
+    display: flex;
+    justify-content: space-between;
+}
+
+fieldset{
+    width: 50vw;
+    margin: auto;
+}
+
+#result{
+    border: 1px solid black;
+    width: 210px;
+    height: 30px;
+    background-color: lightgrey;
+    border-radius: 6px;
+    color: black;
+    border-style: inset;
+    font-weight: bold;
+}
+
+
+
+.toField{
+    display: flex;
+    justify-content: space-between;
+    background-color: #a4a0bb;
+    border-style: inset;
+}
+
+.fromField{
+    display: flex;
+    justify-content: space-between;
+    background-color: #a4a0bb;
+    border-style: inset;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+#baseAmount{
+    background-color: lightgrey;
+    height: 28px;
+    color: black;
+    border-radius: 6px;
+    width: 210px;
+    font-weight: bold;
+}
+
+h1{
+    margin-bottom: 100px;
+}
+
+body{
+    background-image: url("https://github.com/brian-w119/my-images/blob/main/imageOfWorld.png?raw=true");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.exchange-Rate{
+    background-color: white;
+    width: 150px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    font-size: 15px;
+
+    
+}
+
+.exchange-Rate{
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.exchange-Rate > .firstLine{
+    color: green;
+}
+
+.exchange-Rate > .secondLine{
+    color: red;
+}
+
+#currencyConvert{
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 30px;
+    width: 79px;
+}
+
+.targetCurr{
+  color: green;
+}
+
+.defaultCurr{
+    color: red;
+}
+
+legend{
+    margin: auto;
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.exchange-Rate > #firstLine{
+    color: red;
+}
+
+.exchange-Rate > #secondLine{
+    color: green;
+}
+
+.displayOutput > #result{
+    color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.inputDisplay > #baseAmount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+#myChart{
+    background-color: lightgrey;
+    max-width: 500px;
+    height: 350px;
+    display: flex;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    opacity: 0.5;
+}
+

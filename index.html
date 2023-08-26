@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+   
+    <div class="title">
+      <h2>My Currency Converter3</h2>
+    </div>
+
+    <div class="exchange-Rate">
+       <p id="firstLine"></p>
+       <p id="secondLine"></p>
+    </div>
+
+    <fieldset class="fromField">
+        <legend>From</legend>
+        <div class="inputDisplay">
+          <input type="number" min="0" id="baseAmount" name="baseAmount" value="0">
+        </div>    
+      
+        
+
+        <select  style="width: 300px" name="baseCurrency" id="baseCurrency">
+        <option  value="">Select a Currency</option>
+       </select>
+      </fieldset>
+
+     
+
+      <fieldset class="toField">
+        <legend>To</legend>
+        <div class="displayOutput">
+          <div id="result" name="result"></div>
+        </div>
+         
+       
+       
+          <select style="width: 300px" name="outputCurrency" class="to-currency-amount" id="outputCurrency">
+            <option value="">Select a Currency</option>
+          </select>
+      </fieldset>
+
+      <div id="myChart"></div>
+      
+      <script src="script.js"></script>
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+ </body>
+
+</html>
