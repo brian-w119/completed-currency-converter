@@ -43,6 +43,8 @@ const currencyConverter = {
 	datesArray: [],
 	ratesArray: [],
 	currentDate: "",
+	rateMax: "",
+
 
 
 
@@ -98,6 +100,11 @@ const currencyConverter = {
 			this.defaultRates();
 		});
 
+		//make chart hidden on page load
+		window.addEventListener("load", ()=>{
+			chartCreate.chartInvisible();
+		});
+
 
 		//stores the result of the json currency list in a variable, so tha that the function is called only once
 		this.currencyList = await this.getCurrencyList();
@@ -112,6 +119,7 @@ const currencyConverter = {
 			this.fromCurrency = this.toBeConverted.value;
 			this.targetCurrency = "";
 			this.doConversion();
+
 		});
 
 		this.isConvertedTo.addEventListener("change", () => {
@@ -123,6 +131,13 @@ const currencyConverter = {
 			this.baseValue = this.fromInput.value;
 			this.doConversion();
 		});
+
+		//make chart visible on input change after page have loaded
+		this.isConvertedTo.addEventListener("change", () => {
+			chartCreate.chartVisible();
+		});
+
+
 
 		this.getPast6Months();
 	},
@@ -167,19 +182,20 @@ const currencyConverter = {
 	},
 
 
-	async getPastRates() {
+	async getPastRates(){
 		this.ratesArray = [];
-
-		for (const date of this.pastDates) {
+		  for(const date of this.pastDates){
 			const response = await fetch(this.getHistoricalRates(date));
-			const results  = await response.json();
+			const results = await response.json();
 
-			for (const key in results.quotes) {
+			for(const key in results.quotes){
 				this.ratesArray.push(results.quotes[key]);
 			};
 		}
-
+		this.rateMax = Math.max(...this.ratesArray);
+		console.log(`${this.rateMax} - max. rate`);
 		console.log(this.ratesArray);
+		chartCreate.chartDraw();
 	},
 
 	// generates date format
@@ -221,3 +237,48 @@ const currencyConverter = {
 };
 
 currencyConverter.init();
+
+    //draw chart for rates
+    const chartCreate = {
+	  myChart: document.querySelector("#myChart"),
+    
+  
+	  chartDraw(){
+
+      // Define Data
+      const data = [{
+      x: [1, 2, 3, 4, 5, 6],
+      y: currencyConverter.ratesArray,
+	  mode: "lines+markers",
+	  line: {
+		 color: "green",
+		 width: 3
+
+	   }
+     }];
+
+    // Define Layout
+    // const layout = {title: "Rates over 6 months"};
+    const layout = {
+	  xaxis: {range: [0.5, 6.5], title: "Month"},
+	  yaxis: {range: [0, (currencyConverter.rateMax) + ((currencyConverter.rateMax)/4)], 
+	  title: "Rate",
+      automargin: true
+      },  
+	  title: "Rates Over 6 Months"
+    };
+    
+
+     // Display using Plotly
+    Plotly.newPlot(this.myChart, data, layout);
+  },
+    chartInvisible(){
+		this.myChart.style.visibility = "hidden";
+	},
+
+	chartVisible(){
+		this.myChart.style.visibility = "visible";
+	},
+   
+};
+
