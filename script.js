@@ -117,7 +117,7 @@ const currencyConverter = {
 		this.toBeConverted.addEventListener("change", () => {
 			//this.clearRateDisplay();
 			this.fromCurrency = this.toBeConverted.value;
-			this.targetCurrency = "";
+			//this.targetCurrency = "";
 			this.doConversion();
 
 		});
@@ -135,7 +135,10 @@ const currencyConverter = {
 		//make chart visible on input change after page have loaded
 		this.isConvertedTo.addEventListener("change", () => {
 			chartCreate.chartVisible();
+			
 		});
+
+
 
 
 
@@ -179,6 +182,7 @@ const currencyConverter = {
 
 			this.getPastRates();
 		};
+		
 	},
 
 
